@@ -5,16 +5,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<!-- Required meta tags-->
-
-<!-- Title Page-->
 <title>Login</title>
-
-<!-- Fontfaces CSS-->
-
-
 </head>
  <%  
      String resultLogin = (String)request.getAttribute("result");
@@ -23,56 +15,51 @@
     }
   %>
 <body class="animsition">
-	<div class="page-wrapper">
-		<div class="page-content--bge5">
-			<div class="container">
-				<div class="login-wrap">
-					<div class="login-content">
-						<div class="login-logo">
-							<a href="#"> <img src="images/icon/logo.png" alt="CoolAdmin">
-							</a>
-						</div>
-						<div class="login-form">
-							<form <c:url value="/login?action=login"  />" method="post" name="login">
-								<div class="form-group">
-									<label>Account</label> <input class="au-input au-input--full" value="admin"
-										type="text" name="username" placeholder="Username">
-								</div>
-								<div class="form-group">
-									<label>Password</label> <input class="au-input au-input--full"
-										type="password" value="123456" name="password" placeholder="Password">
-								</div>
-								<div class="login-checkbox">
-									<label> <input type="checkbox" name="remember">Remember
-										Me
-									</label> <label> <a href="#">Forgotten Password?</a>
-									</label>
-								</div>
-								<c:if test="${not empty message}" >
+	<section id="form"><!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form"><!--login form-->
+						<h2>Login to your account</h2>
+						<form  action="<c:url value="/login?action=login"  />" method="post" name="login">
+							<input type="text" placeholder="Username" name="username" value="admin" />
+							<input type="password" placeholder="Password" name="password" value="123456" />
+							<c:if test="${not empty message}" >
 					                  <div>
 											      <!--   <p class="text-success" style="color: #28a745">.text-success</p> -->
 											        <p class="text-danger" style="color: #dc3545"><c:out value = "${message}"/> </p>
 										 </div>
-							      </c:if>
-								   <div>
-								      <!--   <p class="text-success" style="color: #28a745">.text-success</p> -->
-								        <p class="text-danger" style="color: #dc3545">${message} </p>
-								   </div>
-								<button class="au-btn au-btn--block au-btn--green m-b-20"
-									type="submit">sign in</button>
-							</form>
-							<div class="register-link">
-								<p>
-									Don't you have account? <a href="#">Sign Up Here</a>
-								</p>
-							</div>
-						</div>
-					</div>
+					      </c:if>
+						   <div>
+						      <!--   <p class="text-success" style="color: #28a745">.text-success</p> -->
+						        <p class="text-danger" style="color: #dc3545">${message} </p>
+						   </div>
+							<span>
+								<input type="checkbox" class="checkbox"> 
+								Keep me signed in
+							</span>
+							
+							<button type="submit" class="btn btn-default">Login</button>
+						</form>
+					</div><!--/login form-->
+				</div>
+				<div class="col-sm-1">
+					<h2 class="or">OR</h2>
+				</div>
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+						<h2>New User Signup!</h2>
+						<form action="#">
+							<input type="text" placeholder="Name"/>
+							<input type="email" placeholder="Email Address"/>
+							<input type="password" placeholder="Password"/>
+							<button type="submit" class="btn btn-default">Signup</button>
+						</form>
+					</div><!--/sign up form-->
 				</div>
 			</div>
 		</div>
-
-	</div>
+	</section><!--/form-->
 
 
 

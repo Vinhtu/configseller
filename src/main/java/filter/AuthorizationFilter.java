@@ -34,7 +34,7 @@ public class AuthorizationFilter implements Filter {
 		
 		String url = request.getRequestURI();
 		
-		if(url.startsWith("/Icommerceshoes/admin")) {
+		if(url.startsWith("/configlan2/admin")) {
 			UserModel userModel = (UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL");
 			if(userModel != null){
 				if(userModel.getUsername().equals(SystemConstant.ADMIN)) {

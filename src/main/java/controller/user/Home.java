@@ -61,7 +61,7 @@ public class Home extends HttpServlet {
 				request.setAttribute("result", result);
 			}
             UserModel model = FormUtil.toModel(UserModel.class, request);
-			RequestDispatcher rd = request.getRequestDispatcher("/views/user/login.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
 			rd.forward(request, response);
 		}  
 		else if(action != null && action.equals("logout")) {
