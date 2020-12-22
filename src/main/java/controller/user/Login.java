@@ -9,33 +9,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Service.IProductService;
-import Service.impl.ProductService;
-
 /**
- * Servlet implementation class ProductDetail
+ * Servlet implementation class Login
  */
-@WebServlet("/product-detail")
-public class ProductDetail extends HttpServlet {
+@WebServlet("/Login")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-	private IProductService productService;
-	
-    public ProductDetail() {
-        productService = new ProductService();
-       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Login() {
+        super();
+        // TODO Auto-generated constructor stub
     }
-    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id_product = request.getParameter("id");
-		request.setAttribute("productDetail", productService.getProductDetail(Integer.parseInt(id_product)));
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/views/user/ProductDetail.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/views/user/login.jsp");
 		rd.forward(request, response);	
 	}
 
